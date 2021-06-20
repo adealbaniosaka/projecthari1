@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Kasir {
+    public static void main(String[] args) {
+        // deklarasi variabel dan Scanner
+        int belanjaan, diskon, bayar, pesan, harga = 0;
+        String kartu, nama, pilih;
+
+        Scanner input = new Scanner(System.in);
+
+        //input nama, pilihan nama kamar, dan berapa lama menginap
+	System.out.print("Masukkan Nama Pemesan:");
+        nama = input.next();
+        System.out.print("Pilihan Tipe Kamar:\n Superior(Rp. 200.000/malam)\n Deluxe(Rp. 300.000/malam)\n Premium(Rp. 400.000/malam)\n");
+        System.out.print("Masukkan Nama Kamar :");
+        pilih = input.next();
+        System.out.print("Berapa Malam : ");
+        pesan = input.nextInt();
+        System.out.println("================");
+        
+        //proses
+	//jadi jika diketik Superior, Deluxe, atau Premium maka akan keluar data yang berbeda
+        if (pilih.equalsIgnoreCase("Superior")) {
+            if (pesan >= 5) {
+                harga = 600000;
+            } else if (pesan >= 3) {
+                harga = 400000;
+            } else if(pesan > 2) {
+                harga = 200000;
+            }
+        } else if (pilih.equalsIgnoreCase("Deluxe")) {
+            if (pesan >= 5) {
+                harga = 900000;
+            } else if (pesan >= 3) {
+                harga = 600000;
+            } else if(pesan > 2) {
+                harga = 300000;
+            }
+        } else {
+            if (pesan >= 5) {
+                harga = 1200000;
+            } else if (pesan >= 3) {
+                harga = 800000;
+            } else if(pesan > 2) {
+                harga = 400000;
+            }
+        }
+
+        // total yang harus dibayar
+        bayar = harga;
+
+        // output
+        System.out.println("Nama Pemesan: " + nama);
+        System.out.println("Pilihan Kamar: " + pilih);
+        System.out.println("Total hari menginap: " + pesan);
+        System.out.println("Total Bayar: Rp " + harga);
+    }  
+}
